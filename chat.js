@@ -100,7 +100,7 @@ app.delete("/chats/:id", async(req, res) => {
 })
 
 app.get("/", (req, res) => {
-    res.send("Root page");
+    res.redirect("/chats");
 })
 
 app.listen(port, () => {
