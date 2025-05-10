@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <form method="GET" action="/chats">
+        <button class="btn">Home</button>
+    </form>
+    <div class="indv-chat">
+        <p><b>From : </b><%= chat.from %></p>
+        <p><b>To : </b><%= chat.to %></p>
+        <p><b>Message : </b><i><%= chat.msg %></i></p>
+        <p><b>Time :</b> <%= chat.created_at.toString().split(" ")[4] %></p>
+        <p><b>Date :</b> <%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %></p>
+        <form method="GET" action="/chats/<%= chat._id %>/edit">
+            <button class="btn">Edit message</button>
+        </form>
+        <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
+            <button class="btn">Delete message</button>
+        </form>
+    </div>
+</body>
+</html>
